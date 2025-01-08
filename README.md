@@ -1,5 +1,3 @@
-# Alexa_ESP32_DHT22_Skill
-Alexa skill that enables the user to request temperature or humidity at a location
 # Overview
 This Readme is intended to be a tutorial on how to get an ESP32-based temperature and humidity reporting device using a DHT22 sensor up and running on Amazon Alexa.  The user can ask the device for the temperature or humidity in one location, or if several devices are deployed, in each of those locations.
 
@@ -11,7 +9,7 @@ The Amazon Alexa operational environment emphasises security and authentication 
 
 This project has two major components.  The first component is the ESP32 device code, which reads data from the DHT22 sensor and publishes temperature and humidity data to AWS IoT Device Shadows on Amazon's servers.  The second component is the Alexa skill.  This skill reads the temperature or humidity data from the device shadows when the user asks an Amazon Echo device for the temperature or humidity at a user-specified location.  The skill must be pre-programmed to recognize the names of different locations.  When the skill recognizes a user request for a meansurement at a location, it generates the speech response that addresses the user's request.  If the skill does not recognize the measurement type or location, it generates an error message as a speech response.
 
-The scope of this tutorial is the creation of a skill you can use on your own network.  It does not include the work necessary to market your skill or easily share it with others.
+The scope of this tutorial is limited to the creation of a skill you can use on your own network.  It does not include the work necessary to market your skill or easily share it with others.
  
 I used a Windows 11 laptop for this project.  If you're using Linux or MacOS, you may have to do things a little differently.
 
@@ -47,8 +45,8 @@ Timer.set(300000, true, function() {
 The Timer.set() function is documented on the [Timers page](https://mongoose-os.com/docs/mongoose-os/api/core/mgos_timers.h.md) of the Mongoose-OS API documentation website.  The AWS.Shadow.update() function is documented on [this page](https://mongoose-os.com/docs/mongoose-os/api/cloud/aws.md).  Read those pages if you want to better understand how the *init.js* code works.
 ## Building, Flashing, and Configuring the ESP32 Code
 This process is based on [this tutorial](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-1/) on the Amazon AWS website.  But instead of building and flashing *c_mqtt firmware example*, we're building and flashing *init.js*.
-Start up MOS by clicking on the MOS icon in the MOS folder on your computer.  On my Windows 11 laptop, the MOS folder is *C:\mos*.  Clicking on the icon opens a tab in my browser and opens a Command Prompt (Windows command window) as well.  I used the browser tab to execute the necessary commands to build and flash the *init.js* software and to configure the ESP32 Wi-Fi and AWS IoT security files.  The commands I used are:
-- cd <directory where init.js is located>
+Start up MOS by clicking on the MOS icon in the MOS folder on your computer.  On my Windows 11 laptop, the MOS folder is *C:\mos*.  Clicking on the icon opens a tab in my browser and opens a Command Prompt (Windows command window) as well.  After telling MOS what device I am using (ESP32) and what COM port it is connected to on my laptop, I used the browser tab to execute the necessary commands to build and flash the *init.js* software and to configure the ESP32 Wi-Fi and AWS IoT security files.  The commands I used are:
+- cd \<directory where init.js is located\>
 - mos build
 - mos flash
 - mos config-set wifi.sta.enable=true wifi.sta.ssid="\<my-wifi-ssid\>" wifi.sta.pass="<my-wifi-password\>"
@@ -123,7 +121,7 @@ In this section, we create the Alexa skill, set up the name we invoke it with, s
 In the black bar at the top of the Alexa Developer Console, you should see the following tab labels:  "Build," "Code," "Test," "Distribution," "Certification," and "Analytics".  This tutorial only covers the first three of those.  We start in the "Build" tab.
  
 #### Create an Invocation Name
-
+In the menu in the left-hand pane of the "Build" tab, if "Invocations" is not expanded, click on it, then click on "Skill Invocation Name".  In the "Invocation" pane that comes up on the right, read the instructions associated with "Skill Invocation Name".  Then enter the name that you'll be comforable with when you ask an Amazon Echo device to open your skill.  I used "my esp thirty two," writing out "thirty two" because one of the rules is that the invocation name must contain only lower-case alphabetic characters, spaces and possessive apostrophes, and numbers should be spelled out.
 
 #### Create a Custom Intent, Sample Utterances, Slot Types, and Slots
 [This web page](https://developer.amazon.com/en-US/docs/alexa/custom-skills/create-intents-utterances-and-slots.html) explains what we'll be doing next, which is, in essence, programming the speech interface for our skill.
