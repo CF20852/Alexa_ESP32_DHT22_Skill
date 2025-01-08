@@ -551,10 +551,6 @@ To build the IAM role for the skill:
 13.  In the Alexa Development Console, in the "Code" tab, click on the "AWS Integrate" icon and copy the "AWS Lambda Execution Role ARN".  Paste that ARN between the quotation marks after "AWS": in the sevent line of the trust policy.
 14.  Click on the "Update policy" orange button in the bottom-right corner of the page.
 
-The trust relationship enables *index.js* to access the ESP32 Device Shadows, which are hosted in AWS.
-Here is the JSON document for the AWS IAM role for the trust relationship:
-
-
 ## Testing and Debugging the Skill
 You can use console.log() statements in *index.js* to print diagnostic data to the CloudWatch logs.  Use the CloudWatch Logs feature in the Alexa Developer Console "Code" tab, *not* the CloudWatch logs in the AWS Developer Console.
 
