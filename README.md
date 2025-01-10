@@ -1,6 +1,8 @@
 # Overview
 This Readme is intended to be a tutorial on how to get an ESP32-based temperature and humidity reporting device using a DHT22 sensor up and running on Amazon Alexa.  The user can ask the device for the temperature or humidity in one location, or if several devices are deployed, in each of those locations.
 
+The specific ESP32 board I'm using is the ESP32-DevKitC-32E Development Board.  I bought it from Amazon in the United States for US$10.00.  If you don't use this specific board, you may have to connect the DHT22 sensor data pin to a different ESP32 pin than what I describe below.
+
 I based this project on a tutorial posted by Jens@Comsysto Reply, published on Medium, *available at* https://medium.com/comsystoreply/alexa-ask-the-sensor-for-the-humidity-in-the-basement-9065f30a3739, last downloaded on 6 January 2025.  Jens' Alexa skill backend function code didn't quite work for me as written, but it provided some invaluable hints and suggested some code that the AIs I used to help get the skill up and running (see next paragraph) did not provide.  I will highlight that code in the detailed explanation that follows.
 
 I wrote the Node.js backend function of the Alexa skill for this sensor with a lot of help from free versions of Claude.AI and Bing Copilot, and a paid version of ChatGPT.  Unfortunately, none of those AIs was able to provide a complete, working skill backend function.  Nor could they explain why it didn't work.  This may be due to changes in the Alexa programming environment after those AIs were trained, or it could just reflect limitations in AI technology as it stands at the time of this writing, early January, 2025.
@@ -14,7 +16,7 @@ The scope of this tutorial is limited to the creation of a skill you can use on 
 I used a Windows 11 laptop for this project.  If you're using Linux or MacOS, you may have to do things a little differently.
 
 # Connecting the ESP32 Development Board to the DHT22
-The connections only require three wires:  +3.3V on the ESP32 to Vcc on the DHT22, 32 on the ESP32 to S on the DHT22, and GND on the ESP32 to GND on the DHT22.  That's it.
+The connections only require three wires:  +3.3V on the ESP32-DevKitC-32E to Vcc (may be called "+") on the DHT22, 32 on the ESP32 to S (may be called "OUT") on the DHT22, and GND (may be called "-") on the ESP32 to GND on the DHT22.  That's it.
 
 # Programming the ESP32
 ## Overview
