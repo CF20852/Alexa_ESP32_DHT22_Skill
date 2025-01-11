@@ -45,6 +45,8 @@ Timer.set(300000, true, function() {
 }, null);
 ```
 The Timer.set() function is documented on the [Timers page](https://mongoose-os.com/docs/mongoose-os/api/core/mgos_timers.h.md) of the Mongoose-OS API documentation website.  The AWS.Shadow.update() function is documented on [this page](https://mongoose-os.com/docs/mongoose-os/api/cloud/aws.md).  Read those pages if you want to better understand how the *init.js* code works.
+
+You may want to change the "let currentTemp" line in the *init.js* code to report temperature in degrees Celsius, or in Kelvins, if you so desire.
 ## Building, Flashing, and Configuring the ESP32 Code
 This process is based on [this tutorial](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-1/) on the Amazon AWS website.  But instead of building and flashing *c_mqtt firmware example*, we're building and flashing *init.js*.
 Start up MOS by clicking on the MOS icon in the MOS folder on your computer.  On my Windows 11 laptop, the MOS folder is *C:\mos*.  Clicking on the icon opens a tab in my browser and opens a Command Prompt (Windows command window) as well.  After telling MOS what device I am using (ESP32) and what COM port it is connected to on my laptop, I used the browser tab to execute the necessary commands to build and flash the *init.js* software and to configure the ESP32 Wi-Fi and AWS IoT security files.  The commands I used are:
@@ -143,6 +145,12 @@ Please note that the names of the intent and slots that I have chosen here are a
 
 #### Programming the Backend Function in Node.js
 Now we switch from the "Build" tab to the "Code" tab in the Alexa Developer Console.  The deveopment environment has supplied an example *index.js* function.  We need to replace it with a function that implements the backend for our skill.  You can just copy the code below and paste it on top of the example *index.js*, or download it from this repository and copy and paste the downloaded file.
+
+In the "CONFIG" section below, you'll need to change a few things:
+1.  Your AWS_REGION, which must be set in the mos aws-iot-setup command and in AWS IoT;
+2.  Your IOT_ENDPOINT, which you can get from Connect -> Domain configurations -> Domain details in the AWS IoT Console;
+3.  Your IOT_ACCESS_ROLE_ARN, which you can get from Manage -> All devices -> Things -> Device details in the AWS IoT Console; and
+4.  Your ESP32 names, specifically, the six hexadecimal digits following "esp32_".
 
 This is the code:
 ```js
