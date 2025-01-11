@@ -149,8 +149,9 @@ Now we switch from the "Build" tab to the "Code" tab in the Alexa Developer Cons
 In the "CONFIG" section below, you'll need to change a few things:
 1.  Your AWS_REGION, which must be set in the mos aws-iot-setup command and in AWS IoT;
 2.  Your IOT_ENDPOINT, which you can get from Connect -> Domain configurations -> Domain details in the AWS IoT Console;
-3.  Your IOT_ACCESS_ROLE_ARN, which you can get from Manage -> All devices -> Things -> Device details in the AWS IoT Console; and
-4.  Your ESP32 names, specifically, the six hexadecimal digits following "esp32_".
+3.  Your IOT_ACCESS_ROLE_ARN, which you can get from Manage -> All devices -> Things -> Device details in the AWS IoT Console;
+4.  Your location names in the LOCATION_MAPPING section, which are probably not the same as mine, and you'll also need to change them in the comments and MESSAGES section; and
+5.  Your ESP32 names in the LOCATION_MAPPING section, specifically, the six hexadecimal digits following "esp32_".
 
 This is the code:
 ```js
