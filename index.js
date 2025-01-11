@@ -21,18 +21,18 @@ const AWS = require('aws-sdk');
  */
 const CONFIG = {
     // AWS IoT specific configuration
-    DEVICE_NAME: 'esp32_E2B7E0',
     AWS_REGION: 'us-east-2',
-    IOT_ENDPOINT: 'ax26pmpwe5mar-ats.iot.us-east-2.amazonaws.com',
-    IOT_ACCESS_ROLE_ARN: 'arn:aws:iam::207567797302:role/LambdaIoTRoleCF',
+    IOT_ENDPOINT: '<something>-ats.iot.<your AWS region>.amazonaws.com',
+    IOT_ACCESS_ROLE_ARN: 'arn:aws:iam::<your AWS account number>:role/LambdaIoTRoleCF',
     
     // Maps user-friendly location names to sensor IDs in the device shadow
     // This abstraction allows us to use natural language locations in the Alexa interface
     // while maintaining technical sensor IDs in the backend
+    // ** Replace AAAAAA, BBBBBB, and CCCCCC with your ESP32 names **
     LOCATION_MAPPING: {
-        //'garage': 'esp32_AAAAAA',
+        'garage': 'esp32_AAAAAA',
         //'living room': 'esp32_BBBBBB',
-        'outdoors': 'esp32_E2B7E0'
+        'outdoors': 'esp32_CCCCCC'
     },
     
     // Measurement configurations define valid ranges and display formats
@@ -58,7 +58,7 @@ const CONFIG = {
     // Having all messages in one place makes it easier to maintain voice consistency
     // and modify responses without changing code logic
     MESSAGES: {
-        LAUNCH: 'Welcome to the ESP32 Sensor Reader. You can ask about temperature or humidity in the garage, living room, or outdoors. For example, try asking: What\'s the temperature in the garage?',
+        LAUNCH: 'Welcome to the ESP32 Sensor Reader. You can ask about temperature or humidity in the garage, living room, or outdoors.',
         HELP: 'You can ask me questions like: What\'s the temperature in the garage? or What\'s the humidity outdoors? I can provide readings from sensors in the garage, living room, and outdoors.',
         ERROR: 'Sorry, I had trouble processing your request. Please try again.',
         GOODBYE: 'Goodbye! Thanks for using ESP32 Sensor Reader.',
@@ -171,7 +171,7 @@ const GetMeasurementForLocationIntentHandler = {
             });
             
             const shadowData = await iotData.getThingShadow({
-                thingName: CONFIG.DEVICE_NAME,
+                thingName: CONFIG.LOCATION_MAPPING[location],
                 
             }).promise();
             
