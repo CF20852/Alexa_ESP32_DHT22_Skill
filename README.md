@@ -169,8 +169,13 @@ const AWS = require('aws-sdk');
  */
 const CONFIG = {
     // AWS IoT specific configuration
+    // You choose what AWS Region to use in MOS and in AWS IoT.
     AWS_REGION: '<your AWS region>',
+    // You can get your IOT_ENDPOINT from Connect -> Domain configurations -> Domain details
+    // in the AWS IoT console
     IOT_ENDPOINT: '<something>-ats.iot.<your AWS region>.amazonaws.com',
+    // You can get your IOT_ACCESS_ROLE_ARN from Manage -> All devices -> Things -> Device details
+    // in the AWS IoT console
     IOT_ACCESS_ROLE_ARN: 'arn:aws:iam::<your AWS account number>:role/LambdaIoTRoleCF',
     
     // Maps user-friendly location names to sensor IDs in the device shadow
