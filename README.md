@@ -168,14 +168,14 @@ const AWS = require('aws-sdk');
  */
 const CONFIG = {
     // AWS IoT specific configuration
-    AWS_REGION: 'us-east-2',
-    IOT_ENDPOINT: 'ax26pmpwe5mar-ats.iot.us-east-2.amazonaws.com',
-    IOT_ACCESS_ROLE_ARN: 'arn:aws:iam::207567797302:role/LambdaIoTRoleCF',
+    AWS_REGION: '<your AWS region>',
+    IOT_ENDPOINT: '<something>-ats.iot.<your AWS region>.amazonaws.com',
+    IOT_ACCESS_ROLE_ARN: 'arn:aws:iam::<your AWS account number>:role/LambdaIoTRoleCF',
     
     // Maps user-friendly location names to sensor IDs in the device shadow
     // This abstraction allows us to use natural language locations in the Alexa interface
     // while maintaining technical sensor IDs in the backend
-    // **Replace AAAAAA, BBBBBB, and CCCCCC with your esp32 names
+    // ** Replace esp32_AAAAAA, esp32_BBBBBB, and esp32_CCCCCC with your esp32 names **
     LOCATION_MAPPING: {
         'garage': 'esp32_AAAAAA',
         //'living room': 'esp32_BBBBBB',
