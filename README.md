@@ -80,13 +80,14 @@ If you already have an Amazon.com account, you currently have the option of usin
 2. Look in the menu on the left side of the window for "Manage".  Click on it.
 3. Look under "Manage" for "All devices".  Click on it or click on the arrow to the left of it to expand the "All devices" menu.
 4. Click on "Things" under "All devices".
-5. Look for "Create things" in the orange box.  Click on it.
-6. Select "Create single thing".  Click on "Next" in the orange box.
-7. Enter the "Thing name" that you noted after running "mos config-set" in the "Building, Flashing, and Configuring the ESP32 Code" section above.
-8. Select "Unnamed shadow (classic)" (you may have to scroll down).
-9. Click on "Next" in the orange box.
-10. Select "Skip creating a certificate at this time"; that was taken care of by "mos aws-iot-setup" above.
-11. Click on "Create thing" in the orange box.  You should get a new window with a message that says "You successfully created thing esp32_XXXXXX".
+5. If you see the name of your new ESP32 in the list, click on it and skip to Step 9 below.
+6. Look for "Create things" in the orange box.  Click on it.
+7. Select "Create single thing".  Click on "Next" in the orange box.
+8. Enter the "Thing name" that you noted after running "mos config-set" in the "Building, Flashing, and Configuring the ESP32 Code" section above.
+9. Select "Unnamed shadow (classic)" (you may have to scroll down).
+10. Click on "Next" in the orange box.
+11. Select "Skip creating a certificate at this time"; that was taken care of by "mos aws-iot-setup" above.
+12. Click on "Create thing" in the orange box.  You should get a new window with a message that says "You successfully created thing esp32_XXXXXX".
 
 ## Verify the ESP32 Data is Getting to Amazon IoT Device Shadow
 In the new window that came up after the last step of creating a new thing, click on the name of your new thing.  Then click on the "Device Shadows" tab.  Then click on "Classic Shadow".  Scroll down to the Device Shadow document" pane, and you should see something in the "Device Shadow state" pane that looks like this JSON string:
