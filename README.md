@@ -91,6 +91,8 @@ If you already have an Amazon.com account, you currently have the option of usin
 11. Select "Skip creating a certificate at this time"; that was taken care of by "mos aws-iot-setup" above.
 12. Click on "Create thing" in the orange box.  You should get a new window with a message that says "You successfully created thing esp32_XXXXXX".
 
+Actually, I don't think I had to do steps 9-12, at least for the second and third ESP32 devices I brought on line.  They seem have been automatically set up. ¯\_(ツ)_/¯
+
 ## Verify the ESP32 Data is Getting to Amazon IoT Device Shadow
 In the new window that came up after the last step of creating a new thing, click on the name of your new thing.  Then click on the "Device Shadows" tab.  Then click on "Classic Shadow".  Scroll down to the Device Shadow document" pane, and you should see something in the "Device Shadow state" pane that looks like this JSON string:
 ```
