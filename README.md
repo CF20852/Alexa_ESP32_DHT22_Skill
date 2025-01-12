@@ -195,7 +195,7 @@ const CONFIG = {
     // ** Replace esp32_AAAAAA, esp32_BBBBBB, and esp32_CCCCCC with your esp32 names **
     LOCATION_MAPPING: {
         'garage': 'esp32_AAAAAA',
-        //'living room': 'esp32_BBBBBB',
+        'living room': 'esp32_BBBBBB',
         'outdoors': 'esp32_CCCCCC'
     },
     
