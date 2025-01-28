@@ -15,6 +15,8 @@ The scope of this tutorial is limited to the creation of a skill you can use on 
  
 I used a Windows 11 laptop for this project.  If you're using Linux or MacOS, you may have to do things a little differently.
 
+Update on 28 Jan 2025:  I modified the DHT22 *init.js* file to work with a BME280.  The *init.js* and *mos.yml* files for that are in a separate folder in this repository.  You'll need to add the "pressure" Slot Value to your "measurement" slot type and add "pressure" to your Alexa skill backend code to take advantage of the full capabilities of the BME280.
+
 # Connecting the ESP32 Development Board to the DHT22
 The connections only require three wires:  +3.3V on the ESP32-DevKitC-32E to Vcc (may be called "+") on the DHT22, 32 on the ESP32 to S (may be called "OUT") on the DHT22, and GND (may be called "-") on the ESP32 to GND on the DHT22.  That's it.
 
@@ -47,6 +49,8 @@ Timer.set(300000, true, function() {
 The Timer.set() function is documented on the [Timers page](https://mongoose-os.com/docs/mongoose-os/api/core/mgos_timers.h.md) of the Mongoose-OS API documentation website.  The AWS.Shadow.update() function is documented on [this page](https://mongoose-os.com/docs/mongoose-os/api/cloud/aws.md).  Read those pages if you want to better understand how the *init.js* code works.
 
 You may want to change the "let currentTemp" line in the *init.js* code to report temperature in degrees Celsius, or in Kelvins, if you so desire.
+
+You'll also need the *mos.yml* file in the same folder as *init.js*.
 ## Building, Flashing, and Configuring the ESP32 Code
 This process is based on [this tutorial](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-1/) on the Amazon AWS website.  But instead of building and flashing *c_mqtt firmware example*, we're building and flashing *init.js*.
 Start up MOS by clicking on the MOS icon in the MOS folder on your computer.  On my Windows 11 laptop, the MOS folder is *C:\mos*.  Clicking on the icon opens a tab in my browser and opens a Command Prompt (Windows command window) as well.  After telling MOS what device I am using (ESP32) and what COM port it is connected to on my laptop, I used the browser tab to execute the necessary commands to build and flash the *init.js* software and to configure the ESP32 Wi-Fi and AWS IoT security files.  The commands I used are:
