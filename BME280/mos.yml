@@ -1,0 +1,35 @@
+author: mongoose-os
+description: BME280 sensor usage example (JavaScript)
+version: 1.0
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+filesystem:
+  - fs
+libs:
+    # common mgos libs
+  - origin: https://github.com/mongoose-os-libs/boards
+  - origin: https://github.com/mongoose-os-libs/ca-bundle
+  - origin: https://github.com/mongoose-os-libs/i2c
+  - origin: https://github.com/mongoose-os-libs/rpc-service-config
+  - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-uart
+  - origin: https://github.com/mongoose-os-libs/spi
+
+    # libs necessary for the current app
+  - origin: https://github.com/mongoose-os-libs/arduino-adafruit-bme280
+  - origin: https://github.com/mongoose-os-libs/mjs
+config_schema:
+  - ["i2c.sda_gpio",21]
+  - ["i2c.scl_gpio",22]
+  - ["i2c.enable", true]
+  - ["wifi.ap.enable",false]
+
+tags:
+  - js
+  - arduino
+  - hw
+
+manifest_version: 2017-05-18
