@@ -15,7 +15,7 @@ The scope of this tutorial is limited to the creation of a skill you can use on 
  
 I used a Windows 11 laptop for this project.  If you're using Linux or MacOS, you may have to do things a little differently.
 
-Update on 28 Jan 2025:  I modified the DHT22 *init.js* file to work with a BME280.  The *init.js* and *mos.yml* files for that are in the BME280 folder in this repository.  The DHT22 *init.js* and *mos.yml* files are in the DHT22 folder.  You'll need to add the "pressure" Slot Value to your "measurement" slot type and add "pressure" to your Alexa skill backend code to take advantage of the full capabilities of the BME280.
+Update on 28 Jan 2025:  I modified the DHT22 *init.js* file to work with a BME280.  The *init.js* and *mos.yml* files for that are in the BME280 folder in this repository.  The DHT22 *init.js* and *mos.yml* files are in the DHT22 folder.  You'll need to add the "pressure" Slot Value to your "measurement" slot type and add "pressure" to your Alexa skill backend code to take advantage of the full capabilities of the BME280.  I leave how to do that as an exercise for the 'A' students.
 
 # Connecting the ESP32 Development Board to the DHT22
 The connections only require three wires:  +3.3V on the ESP32-DevKitC-32E to Vcc (may be called "+") on the DHT22, 32 on the ESP32 to S (may be called "OUT") on the DHT22, and GND (may be called "-") on the ESP32 to GND on the DHT22.  That's it.
