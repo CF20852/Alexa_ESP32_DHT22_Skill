@@ -1,0 +1,1 @@
+To implement this gadget with a BME280 sensor instead of a DHT22 sensor, use the code in this folder.  Connect the BME280 SDA and SCL lines to GPIO pins 21 and 22 respectively.  Connect ESP32 3.3V to BME280 VCC and ESP32 GND to BME280 GND.
