@@ -1,5 +1,5 @@
 # Overview
-This Readme is intended to be a tutorial on how to get an ESP32-based temperature and humidity reporting device using a DHT22 sensor up and running on Amazon Alexa.  The user can ask the device for the temperature or humidity in one location, or if several devices are deployed, in each of those locations.
+This Readme is intended to be a tutorial on how to get an ESP32-based temperature and humidity reporting device using a DHT22 sensor up and running on Amazon Alexa.  (See the last paragraph in the Overview section if you prefer the BME280.)  The user can ask the device for the temperature or humidity in one location, or if several devices are deployed, in each of those locations.
 
 The specific ESP32 board I'm using is the ESP32-DevKitC-32E Development Board.  I bought it from Amazon in the United States for US$10.00.  If you don't use this specific board, you may have to connect the DHT22 sensor data pin to a different ESP32 pin than what I describe below.
 
